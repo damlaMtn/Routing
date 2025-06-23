@@ -36,6 +36,11 @@ app.UseEndpoints(endpoints =>
     {
         await context.Response.WriteAsync($"Delete the employee: {context.Request.RouteValues["id"]}");
     });
+
+    endpoints.MapGet("/{category=shirts}/{size=medium}/{id=0}", async (HttpContext context) =>
+    {
+        await context.Response.WriteAsync($"Get category: {context.Request.RouteValues["category"]} in size: {context.Request.RouteValues["size"]} with the id: {context.Request.RouteValues["id"]}");
+    });
 });
 
 
